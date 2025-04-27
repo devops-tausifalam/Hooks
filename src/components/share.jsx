@@ -39,6 +39,17 @@ export function ShareMenu({ onClose }) {
       UTM-source and creates a shareable URL for client to share.
   */
 
+  function blueskyIntent() {
+        let schema = "https://bsky.app/intent/compose";
+        let home_url = window.location.href;
+        let awesomeTxt = "I just found an awesome hook — check it out here! ";
+
+        let intentURL = `${schema}?text=${encodeURIComponent(awesomeTxt + home_url)}`;;
+
+        window.open(intentURL, "_blank");
+
+  }
+
 
   return (
     <>
@@ -87,7 +98,7 @@ export function ShareMenu({ onClose }) {
                   <FaSnapchatGhost className="icon" />
                   <span className="icon-label">Snapchat</span>
                 </button>
-                <button>
+                <button onClick={ blueskyIntent }>
                   <FaBluesky className="icon" />
                   <span className="icon-label">Bluesky</span>
                 </button>
