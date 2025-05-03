@@ -2,12 +2,10 @@ import "./styles/share.scss";
 import { RiFlag2Line } from "react-icons/ri";
 import { MdOutlineIosShare, MdOutlineClose, MdOutlineContentCopy } from "react-icons/md";
 // common social icons
-import { FaSnapchatGhost } from "react-icons/fa";
 import {
   FaSquareFacebook,
   FaFacebookMessenger,
   FaWhatsapp,
-  FaSignalMessenger,
   FaLinkedin,
   FaBluesky,
   FaXTwitter,
@@ -50,7 +48,46 @@ export function ShareMenu({ onClose }) {
 
   }
 
+  function facebookIntent() {
+    const home_url = window.location.href;
+    const intentURL = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(home_url)}`;
+    window.open(intentURL, "_blank");
+  }
+  
+  function messengerIntent() {
+    const home_url = window.location.href;
+    const intentURL = `fb-messenger://share?link=${encodeURIComponent(home_url)}`;
+    window.open(intentURL, "_blank");
+  }
+  
+  function whatsappIntent() {
+    const home_url = window.location.href;
+    const message = `I just found an awesome hook — check it out here! ${home_url}`;
+    const intentURL = `https://wa.me/?text=${encodeURIComponent(message)}`;
+    window.open(intentURL, "_blank");
+  }
+  
+  function linkedinIntent() {
+    const home_url = window.location.href;
+    const intentURL = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(home_url)}`;
+    window.open(intentURL, "_blank");
+  }
+  
+  function xIntent() {
+    const home_url = window.location.href;
+    const message = `I just found an awesome hook — check it out here! ${home_url}`;
+    const intentURL = `https://twitter.com/intent/tweet?text=${encodeURIComponent(message)}`;
+    window.open(intentURL, "_blank");
+  }
 
+  function emailIntent() {
+    const home_url = window.location.href;
+    const subject = "Check this out!";
+    const body = `I just found an awesome hook — check it out here! ${home_url}`;
+    const intentURL = `mailto:?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.open(intentURL, "_blank");
+  }
+    
   return (
     <>
       <div className="sharemenu">
@@ -74,39 +111,31 @@ export function ShareMenu({ onClose }) {
           </figure>
           <div className="functionBox">
               <div className="socialicons">
-                <button>
+                <button  onClick={ facebookIntent }>
                   <FaSquareFacebook className="icon" />
                   <span className="icon-label">Facebook</span>
                 </button>
-                <button>
+                <button onClick={ messengerIntent }>
                   <FaFacebookMessenger className="icon" />
-                  <span className="icon-label">Messenger</span>
+                  <span className="icon-label" >Messenger</span>
                 </button>
-                <button>
+                <button onClick={ whatsappIntent }>
                   <FaWhatsapp className="icon" />
                   <span className="icon-label">WhatsApp</span>
                 </button>
-                <button>
-                  <FaSignalMessenger className="icon" />
-                  <span className="icon-label">Signal</span>
-                </button>
-                <button>
+                <button onClick={ linkedinIntent }>
                   <FaLinkedin className="icon" />
                   <span className="icon-label">LinkedIn</span>
-                </button>
-                <button>
-                  <FaSnapchatGhost className="icon" />
-                  <span className="icon-label">Snapchat</span>
                 </button>
                 <button onClick={ blueskyIntent }>
                   <FaBluesky className="icon" />
                   <span className="icon-label">Bluesky</span>
                 </button>
-                <button>
+                <button onClick={ xIntent }>
                   <FaXTwitter className="icon" />
                   <span className="icon-label">X</span>
                 </button>
-                <button>
+                <button onClick={ emailIntent }>
                   <FaEnvelope className="icon" />
                   <span className="icon-label">Email</span>
                 </button>
