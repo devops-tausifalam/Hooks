@@ -1,6 +1,5 @@
 import "./styles/link.scss";
 import { useState } from "react";
-import { RiFlag2Line } from "react-icons/ri";
 import { IoMdShareAlt } from "react-icons/io";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import meta from "./meta/hook.metadata.json" with { type: "json" };
@@ -28,6 +27,20 @@ export default function Linklist() {
     }
   };
 
+  async function share_compo(link) {
+       // Check if link exists
+        if (!link) {
+          console.error('Link not found');
+          return;
+        }
+      
+        try {
+          await navigator.clipboard.writeText(link.url);
+          console.log('Link copied to clipboard');
+        } catch (err) {
+          console.error('Failed to copy link:', err);
+        }
+  }
 
   return (
     <div className="linkbox">
@@ -40,15 +53,10 @@ export default function Linklist() {
               <div className={`shareto-menu ${activeMenu === index ? "active" : ""}`}>
                 <ul>
                   <li>
-                    <button>
+                    <button onClick={() =>  share_compo(link) }>
                       <IoMdShareAlt /> share
                     </button>
                   </li>
-                  <li>
-                    <button>
-                      <RiFlag2Line />  report
-                    </button>
-                    </li>
                 </ul>
               </div>
             </div>

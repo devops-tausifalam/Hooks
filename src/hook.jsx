@@ -40,6 +40,7 @@ fetch(pexels_url, {
       const selectedPhoto = data.photos[random_index];
 
       const img = new Image();
+      img.crossOrigin = "Anonymous"; // making adequate changeds for CORS policy.
       img.src = selectedPhoto.src.original;
       img.onload = () => {
         document.body.style.setProperty("--bg-image", `url(${selectedPhoto.src.original})`);
