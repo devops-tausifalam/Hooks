@@ -2,11 +2,7 @@
     "profile": {
         "name": "Tausif Alam",
         "bio": "Analyze. Code. Deploy.",
-        "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:2t3bgawnjqidwbhyh3qskg44/bafkreig4e2jsr5u2hzovzk26jaeryajcg5ynobdj2awywsfoialje2vidq@jpeg",
-        "callToAction": {
-            "title": "btn_title",
-            "url": "https://admin.profile/resume.doc"
-        }
+        "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:2t3bgawnjqidwbhyh3qskg44/bafkreig4e2jsr5u2hzovzk26jaeryajcg5ynobdj2awywsfoialje2vidq@jpeg"
     },
         "socials": [
             {
@@ -45,6 +41,6 @@
         }
     ],
     "settings": {
-        "bgPrefs": "green, cherry blossoms, good vibe, matrix, vibe, happy, programming"
+        "bgPrefs": "dark,servers, programming, intellectual"
     }
 }

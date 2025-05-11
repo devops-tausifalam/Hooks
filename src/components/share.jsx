@@ -3,12 +3,8 @@ import { RiFlag2Line } from "react-icons/ri";
 import { MdOutlineIosShare, MdOutlineClose, MdOutlineContentCopy } from "react-icons/md";
 // common social icons
 import {
-  FaSquareFacebook,
-  FaFacebookMessenger,
   FaWhatsapp,
-  FaLinkedin,
   FaBluesky,
-  FaXTwitter,
   FaEnvelope,
 } from "react-icons/fa6";
 
@@ -111,43 +107,22 @@ export function ShareMenu({ onClose }) {
           </figure>
           <div className="functionBox">
               <div className="socialicons">
-                <button  onClick={ facebookIntent }>
-                  <FaSquareFacebook className="icon" />
-                  <span className="icon-label">Facebook</span>
-                </button>
-                <button onClick={ messengerIntent }>
-                  <FaFacebookMessenger className="icon" />
-                  <span className="icon-label" >Messenger</span>
-                </button>
                 <button onClick={ whatsappIntent }>
                   <FaWhatsapp className="icon" />
                   <span className="icon-label">WhatsApp</span>
-                </button>
-                <button onClick={ linkedinIntent }>
-                  <FaLinkedin className="icon" />
-                  <span className="icon-label">LinkedIn</span>
                 </button>
                 <button onClick={ blueskyIntent }>
                   <FaBluesky className="icon" />
                   <span className="icon-label">Bluesky</span>
                 </button>
-                <button onClick={ xIntent }>
-                  <FaXTwitter className="icon" />
-                  <span className="icon-label">X</span>
-                </button>
                 <button onClick={ emailIntent }>
                   <FaEnvelope className="icon" />
                   <span className="icon-label">Email</span>
                 </button>
-                <button className="clipboardbtn">
+                <button className="clipboardbtn" onClick={() => navigator.clipboard.writeText(window.location.href)}>
                   <span className="icon-label">copy to clipboard</span>
                 </button>
               </div>
-          </div>
-          <div className="reportsection">
-            <button>
-                <RiFlag2Line /> Report this hook.
-            </button>
           </div>
         </div>
       </div>

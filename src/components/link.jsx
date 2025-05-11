@@ -1,6 +1,5 @@
 import "./styles/link.scss";
 import { useState } from "react";
-import { RiFlag2Line } from "react-icons/ri";
 import { IoMdShareAlt } from "react-icons/io";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import meta from "./meta/hook.metadata.json" with { type: "json" };
@@ -28,24 +27,19 @@ export default function Linklist() {
     }
   };
 
-  function share_compo(link) {
+  async function share_compo(link) {
        // Check if link exists
         if (!link) {
           console.error('Link not found');
           return;
         }
-      // check if Web Share API is supported
-      if (navigator.share) {
-        console.log(meta.profile.name)
-        navigator.share({
-          title: "I've found a great hook, checkout here,",
-          text:  `${meta.profile.name}'s  ${link.title}`,
-          url: link.url
-        })
-        .catch((error) => console.error('error sharing:', error));
-      } else {
-        alert("Web Share API not supported on this browser. Try copying the link manually.");
-      }
+      
+        try {
+          await navigator.clipboard.writeText(link.url);
+          console.log('Link copied to clipboard');
+        } catch (err) {
+          console.error('Failed to copy link:', err);
+        }
   }
 
   return (
@@ -63,11 +57,6 @@ export default function Linklist() {
                       <IoMdShareAlt /> share
                     </button>
                   </li>
-                  <li>
-                    <button>
-                      <RiFlag2Line />  report
-                    </button>
-                    </li>
                 </ul>
               </div>
             </div>
