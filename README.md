@@ -1,12 +1,54 @@
-# React + Vite
+# 🔗 Hooks – Linklist Web App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A minimalist personal **link sharing app** powered by JSON metadata. Built with React, it dynamically renders your portfolio, socials, and more from a single configurable file. Just update the JSON — the UI updates instantly.
 
-Currently, two official plugins are available:
+![Screenshot of the App](./public/Assets/Screenshot%20(1).png)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## 📌 Features
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- ⚡ Copy-to-clipboard with toast feedback
+- 🌐 Social media + personal links
+- 🧠 Configurable via one JSON file
+- 💡 Auto-close dropdown menus
+- 💬 Toast notifications with success/error styles
+
+---
+
+## 🧠 Tech Stack
+
+- **React** with functional components and hooks
+- **SCSS** for custom styling
+- **React Icons** for UI elements
+- **JSON-based metadata** for easy content management
+- **Portal-based toast system** (notifications rendered to `<body>`)
+
+---
+
+## 🗂 JSON Structure (`hook.metadata.json`)
+
+```json
+{
+  "profile": {
+    "name": "Your Name",
+    "bio": "Wonderful bio of yours",
+    "avatar": "imgbb or whatever you prefer which renders image directly"
+  },
+  "socials": [
+    { "platform": "GitHub", "url": "https://github.com/yourusername" },
+    { "platform": "bluesky", "url": "https://bsky.app/yourusername" },
+    { "platform": "LinkedIn", "url": "https://linkedin.com/in/yourusername" },
+    { "platform": "envelope", "url": "mailto:user@admin.com" }
+  ],
+  "links": [
+    {
+      "title": "Portfolio",
+      "url": "https://yourportfolio.com",
+      "icon": "https://yourwebsite.com/assets/portfolio-icon.svg"
+    }
+  ],
+  "settings": {
+    "bgPrefs": "servers, programming"
+  }
+}

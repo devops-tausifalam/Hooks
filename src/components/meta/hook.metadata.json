@@ -28,19 +28,9 @@
             "title": "Portfolio",
             "url": "https://yourportfolio.com",
             "icon": "https://yourwebsite.com/assets/portfolio-icon.svg"
-        },
-        {
-            "title": "Merch",
-            "url": "https://yourblog.com",
-            "icon": "https://yourwebsite.com/assets/blog-icon.svg"
-        },
-        {
-            "title": "Blog",
-            "url": "https://yourwebsite.com/resume.pdf",
-            "icon": "https://yourwebsite.com/assets/resume-icon.svg"
         }
     ],
     "settings": {
-        "bgPrefs": "dark,servers, programming, intellectual"
+        "bgPrefs": "servers, programming"
     }
 }
