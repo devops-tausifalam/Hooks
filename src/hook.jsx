@@ -3,7 +3,6 @@ import Brand from "./components/branding.jsx";
 import Userprofile from "./components/user_profile.jsx";
 import Socialcapsule from "./components/capsule.jsx";
 import Linklist from "./components/link.jsx";
-import {Share as ShareButton, ShareMenu} from "./components/share.jsx";
 import meta from "./components/meta/hook.metadata.json" with { type: "json" };
 // import pexels for background images
 // import { createClient } from "pexels";
@@ -65,7 +64,6 @@ function App() {
 
   return (
     <div className="mainWrapper" hidden>
-      <ShareButton onClick={() => setShowShareMenu(true)}/>
       <div className="appInner">
         <Userprofile />
         <Linklist />
@@ -76,9 +74,6 @@ function App() {
         <p></p>
       </div>
       </div>
-      {showShareMenu && (
-        <ShareMenu onClose={() => setShowShareMenu(false)}/>
-      )}
     </div>
   );
 }
